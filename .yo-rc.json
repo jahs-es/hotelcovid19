@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "org.ticparabien.hotelcovid19",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "6.4.1",
+    "applicationType": "monolith",
+    "baseName": "hotelcovid19",
+    "packageName": "org.ticparabien.hotelcovid19",
+    "packageFolder": "org/ticparabien/hotelcovid19",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YzFmZWVhZjdiZmU4NDIyMGNkZmM1ZTk3ZGExNmZmMGI1ODQ5ZTg1MWU3NTg4YjcyOWEzZGJiYmFhYjFmYzBmOTg2MTdjOWJiMWM1NTU0NWEyODFhYWMzZGIxNTQ5ZDIwNjQzNmE5NDcxMDQ2NTZmZjRhYzAxYjdlYzNjOTFhZmQ=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "react",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "testFrameworks": ["gatling", "cucumber", "protractor"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": ["es"],
+    "blueprints": []
+  }
+}
