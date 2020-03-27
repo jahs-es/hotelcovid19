@@ -1,0 +1,23 @@
+{
+  "hotelcovid19App": {
+    "room": {
+      "home": {
+        "title": "Rooms",
+        "createLabel": "Crear nuevo Room",
+        "createOrEditLabel": "Crear o editar Room",
+        "notFound": "No Rooms found"
+      },
+      "created": "Un nuevo Room ha sido creado con el identificador {{ param }}",
+      "updated": "Un Room ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Room ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Room {{ id }}?"
+      },
+      "detail": {
+        "title": "Room"
+      },
+      "name": "Name",
+      "user": "User"
+    }
+  }
+}

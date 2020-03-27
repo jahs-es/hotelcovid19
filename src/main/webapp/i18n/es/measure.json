@@ -1,0 +1,35 @@
+{
+  "hotelcovid19App": {
+    "measure": {
+      "home": {
+        "title": "Measures",
+        "createLabel": "Crear nuevo Measure",
+        "createOrEditLabel": "Crear o editar Measure",
+        "notFound": "No Measures found"
+      },
+      "created": "Un nuevo Measure ha sido creado con el identificador {{ param }}",
+      "updated": "Un Measure ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Measure ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Measure {{ id }}?"
+      },
+      "detail": {
+        "title": "Measure"
+      },
+      "date": "Date",
+      "temperatureAt8": "Temperature At 8",
+      "temperatureAt20": "Temperature At 20",
+      "cought": "Cought",
+      "troubleToBreathe": "Trouble To Breathe",
+      "sputum": "Sputum",
+      "soreThroat": "Sore Throat",
+      "ostTaste": "Ost Taste",
+      "flutter": "Flutter",
+      "diarrhea": "Diarrhea",
+      "headache": "Headache",
+      "musclePain": "Muscle Pain",
+      "notes": "Notes",
+      "user": "User"
+    }
+  }
+}
