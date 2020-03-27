@@ -3,7 +3,7 @@ entity Room {
 }
 
 relationship OneToOne {
-  User{room} to Room
+  Room{user} to User
 }
 
 entity Measure {

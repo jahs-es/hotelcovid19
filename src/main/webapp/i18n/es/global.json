@@ -7,6 +7,8 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entidades",
+        "room": "Room",
+        "measure": "Measure",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -51,6 +53,10 @@
           "prefix": "Si desea ",
           "link": "iniciar sesión",
           "suffix": ", puede intentar con las cuentas predeterminadas:<br/>- Administrador (usuario=\"admin\" y contraseña=\"admin\") <br/>- Usuario (usuario=\"user\" y contraseña=\"user\")."
+        },
+        "login": {
+          "doLogin": "Debe hacer login para acceder:",
+          "link": "Hacer login"
         },
         "register": {
           "noaccount": "¿Aún no tienes una cuenta?",
@@ -131,5 +137,5 @@
     "idexists": "Un/a nuevo/a {{entityName}} no puede tener ID",
     "idnull": "ID inválido"
   },
-  "footer": "Pie de página"
+  "footer": "hotelCovid19"
 }
