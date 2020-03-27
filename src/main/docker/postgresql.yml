@@ -6,6 +6,6 @@ services:
     #     - ~/volumes/jhipster/hotelcovid19/postgresql/:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=hotelcovid19
-      - POSTGRES_PASSWORD=
+      - POSTGRES_PASSWORD=12345
     ports:
       - 5432:5432

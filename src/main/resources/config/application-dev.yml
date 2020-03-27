@@ -38,7 +38,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://localhost:5432/hotelcovid19
     username: hotelcovid19
-    password:
+    password: 12345
     hikari:
       poolName: Hikari
       auto-commit: false
