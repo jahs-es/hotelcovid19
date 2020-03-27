@@ -1,5 +1,5 @@
 entity Room {
-    name String required maxlength(100),
+    name String name required maxlength(100),
 }
 
 relationship OneToOne {
@@ -8,18 +8,18 @@ relationship OneToOne {
 
 entity Measure {
     date Instant required,
-    double temperatureAt8,
-    double temperatureAt20,
-    boolean cought,
-    boolean troubleToBreathe,
-    boolean sputum,
-    boolean soreThroat,
-    boolean lostTaste,
-    boolean flutter,
-    boolean diarrhea,
-    boolean headache,
-    boolean musclePain,
-    boolean notes
+    temperatureAt8 Double,
+    temperatureAt20 Double,
+    cought Boolean required,
+    troubleToBreathe Boolean required,
+    sputum Boolean required,
+    soreThroat Boolean required,
+    ostTaste Boolean required,
+    flutter Boolean required,
+    diarrhea Boolean required,
+    headache Boolean required,
+    musclePain Boolean required,
+    notes String
 }
 
 relationship ManyToOne {
