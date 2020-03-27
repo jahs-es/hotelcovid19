@@ -1,5 +1,5 @@
 entity Room {
-    name String name required maxlength(100),
+    name String required maxlength(100),
 }
 
 relationship OneToOne {
