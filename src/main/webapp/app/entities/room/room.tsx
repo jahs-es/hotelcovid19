@@ -107,7 +107,7 @@ export class Room extends React.Component<IRoomProps, IRoomState> {
                         </Button>
                       </td>
                       <td>{room.name}</td>
-                      <td>{room.user ? room.user.id : ''}</td>
+                      <td>{room.user ? `${room.user.login}` : ''}</td>
                       <td className="text-right">
                         <div className="btn-group flex-btn-group-container">
                           <Button tag={Link} to={`${match.url}/${room.id}`} color="info" size="sm">

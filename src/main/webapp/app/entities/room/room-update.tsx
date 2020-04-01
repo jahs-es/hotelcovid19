@@ -1,18 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Row, Col, Label } from 'reactstrap';
-import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
-import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IRootState } from 'app/shared/reducers';
-
-import { IUser } from 'app/shared/model/user.model';
-import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
-import { getEntity, updateEntity, createEntity, reset } from './room.reducer';
-import { IRoom } from 'app/shared/model/room.model';
-import { convertDateTimeFromServer, convertDateTimeToServer } from 'app/shared/util/date-utils';
-import { mapIdList } from 'app/shared/util/entity-utils';
+import {connect} from 'react-redux';
+import {Link, RouteComponentProps} from 'react-router-dom';
+import {Button, Col, Label, Row} from 'reactstrap';
+import {AvField, AvForm, AvGroup, AvInput} from 'availity-reactstrap-validation';
+import {Translate, translate} from 'react-jhipster';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {IRootState} from 'app/shared/reducers';
+import {getUsers} from 'app/modules/administration/user-management/user-management.reducer';
+import {createEntity, getEntity, reset, updateEntity} from './room.reducer';
 
 export interface IRoomUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -114,7 +109,7 @@ export class RoomUpdate extends React.Component<IRoomUpdateProps, IRoomUpdateSta
                     {users
                       ? users.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.id}
+                            {otherEntity.login}
                           </option>
                         ))
                       : null}

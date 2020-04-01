@@ -35,7 +35,7 @@ export class RoomDetail extends React.Component<IRoomDetailProps> {
             <dt>
               <Translate contentKey="hotelcovid19App.room.user">User</Translate>
             </dt>
-            <dd>{roomEntity.user ? roomEntity.user.id : ''}</dd>
+            <dd>{roomEntity.user ? `${roomEntity.user.firstName} ${roomEntity.user.lastName} (${roomEntity.user.login})` : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/room" replace color="info">
             <FontAwesomeIcon icon="arrow-left" />{' '}
