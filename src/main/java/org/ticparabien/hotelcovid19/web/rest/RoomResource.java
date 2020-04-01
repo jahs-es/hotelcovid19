@@ -114,6 +114,13 @@ public class RoomResource {
         return ResponseUtil.wrapOrNotFound(room);
     }
 
+    @GetMapping("/rooms/user/{userId}")
+    public ResponseEntity<Room> getRoomByUser(@PathVariable Long userId) {
+        log.debug("REST request to get Room by UserId: {}", userId);
+        Optional<Room> room = roomService.findOneByUserId(userId);
+        return ResponseUtil.wrapOrNotFound(room);
+    }
+
     /**
      * {@code DELETE  /rooms/:id} : delete the "id" room.
      *

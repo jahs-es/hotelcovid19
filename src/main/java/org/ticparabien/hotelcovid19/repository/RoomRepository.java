@@ -2,6 +2,9 @@ package org.ticparabien.hotelcovid19.repository;
 import org.ticparabien.hotelcovid19.domain.Room;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
+import org.ticparabien.hotelcovid19.domain.User;
+
+import java.util.Optional;
 
 
 /**
@@ -11,4 +14,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RoomRepository extends JpaRepository<Room, Long> {
 
+    Optional<Room> findOneByUserId(Long userId);
 }

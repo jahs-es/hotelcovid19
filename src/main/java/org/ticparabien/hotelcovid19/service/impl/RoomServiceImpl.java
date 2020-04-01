@@ -1,5 +1,6 @@
 package org.ticparabien.hotelcovid19.service.impl;
 
+import org.ticparabien.hotelcovid19.domain.User;
 import org.ticparabien.hotelcovid19.service.RoomService;
 import org.ticparabien.hotelcovid19.domain.Room;
 import org.ticparabien.hotelcovid19.repository.RoomRepository;
@@ -76,5 +77,10 @@ public class RoomServiceImpl implements RoomService {
     public void delete(Long id) {
         log.debug("Request to delete Room : {}", id);
         roomRepository.deleteById(id);
+    }
+
+    public Optional<Room> findOneByUserId(Long userId) {
+        log.debug("Searching room for user {}", userId);
+        return roomRepository.findOneByUserId(userId);
     }
 }

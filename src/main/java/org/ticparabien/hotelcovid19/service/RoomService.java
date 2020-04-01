@@ -43,4 +43,6 @@ public interface RoomService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Optional<Room> findOneByUserId(Long userId);
 }
