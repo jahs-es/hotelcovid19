@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { Row, Col, Alert } from 'reactstrap';
 
 import { IRootState } from 'app/shared/reducers';
+import {isNullOrUndefined} from "util";
 
 export type IHomeProp = StateProps;
 
@@ -23,6 +24,20 @@ export const Home = (props: IHomeProp) => {
                 You are logged in as user {account.login}.
               </Translate>
             </Alert>
+            {account.roomName &&
+            <Alert color="info">
+              <Translate contentKey="home.logged.room" interpolate={{ roomName: account.roomName }}>
+                Your room is {account.roomName}.
+              </Translate>
+            </Alert>
+            }
+            {account.roomName == null &&
+            <Alert color="warning">
+              <Translate contentKey="home.logged.noRoom">
+                No room asigned to you. Please contact an admin.
+              </Translate>
+            </Alert>
+            }
           </div>
         ) : (
           <div>
@@ -32,7 +47,7 @@ export const Home = (props: IHomeProp) => {
                 <Translate contentKey="global.messages.info.register.link">Register a new account</Translate>
               </Link>
             </Alert>
-            <Alert color="warning">
+            <Alert color="info">
               <Translate contentKey="global.messages.info.login.doLogin">Please do login to access:</Translate>&nbsp;
               <Link to="/account/login" className="alert-link">
                 <Translate contentKey="global.messages.info.login.link">Do login</Translate>

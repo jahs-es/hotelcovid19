@@ -3,6 +3,7 @@ package org.ticparabien.hotelcovid19.service.dto;
 import org.ticparabien.hotelcovid19.config.Constants;
 
 import org.ticparabien.hotelcovid19.domain.Authority;
+import org.ticparabien.hotelcovid19.domain.Room;
 import org.ticparabien.hotelcovid19.domain.User;
 
 import javax.validation.constraints.Email;
@@ -53,8 +54,17 @@ public class UserDTO {
 
     private Set<String> authorities;
 
+    private Long roomId;
+
+    private String roomName;
+
     public UserDTO() {
         // Empty constructor needed for Jackson.
+    }
+
+    public void setRoom(Room room) {
+        this.roomId = room.getId();
+        this.roomName = room.getName();
     }
 
     public UserDTO(User user) {
@@ -194,6 +204,24 @@ public class UserDTO {
             ", lastModifiedBy='" + lastModifiedBy + '\'' +
             ", lastModifiedDate=" + lastModifiedDate +
             ", authorities=" + authorities +
+            ", roomId=" + roomId +
+            ", roomName=" + roomName +
             "}";
+    }
+
+    public Long getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(Long roomId) {
+        this.roomId = roomId;
+    }
+
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
     }
 }
