@@ -1,18 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Row, Col, Label } from 'reactstrap';
-import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
-import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IRootState } from 'app/shared/reducers';
-
-import { IUser } from 'app/shared/model/user.model';
-import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
-import { getEntity, updateEntity, createEntity, reset } from './measure.reducer';
-import { IMeasure } from 'app/shared/model/measure.model';
-import { convertDateTimeFromServer, convertDateTimeToServer } from 'app/shared/util/date-utils';
-import { mapIdList } from 'app/shared/util/entity-utils';
+import {connect} from 'react-redux';
+import {Link, RouteComponentProps} from 'react-router-dom';
+import {Button, Col, Label, Row} from 'reactstrap';
+import {AvField, AvForm, AvGroup, AvInput} from 'availity-reactstrap-validation';
+import {Translate, translate} from 'react-jhipster';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {IRootState} from 'app/shared/reducers';
+import {getUsers} from 'app/modules/administration/user-management/user-management.reducer';
+import {createEntity, getEntity, reset, updateEntity} from './measure.reducer';
+import {convertDateTimeFromServer, convertDateTimeToServer} from 'app/shared/util/date-utils';
 
 export interface IMeasureUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -67,8 +63,10 @@ export class MeasureUpdate extends React.Component<IMeasureUpdateProps, IMeasure
   };
 
   render() {
-    const { measureEntity, users, loading, updating } = this.props;
+    const { measureEntity, users, loading, updating, account } = this.props;
     const { isNew } = this.state;
+
+    const isAdmin = () => (!!(account.authorities.indexOf('ROLE_ADMIN') > -1 ));
 
     return (
       <div>
@@ -181,6 +179,7 @@ export class MeasureUpdate extends React.Component<IMeasureUpdateProps, IMeasure
                   </Label>
                   <AvField id="measure-notes" type="text" name="notes" />
                 </AvGroup>
+                {isAdmin() &&
                 <AvGroup>
                   <Label for="measure-user">
                     <Translate contentKey="hotelcovid19App.measure.user">User</Translate>
@@ -190,12 +189,13 @@ export class MeasureUpdate extends React.Component<IMeasureUpdateProps, IMeasure
                     {users
                       ? users.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.id}
+                            {otherEntity.login}
                           </option>
                         ))
                       : null}
                   </AvInput>
                 </AvGroup>
+                }
                 <Button tag={Link} id="cancel-save" to="/entity/measure" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />
                   &nbsp;
@@ -218,12 +218,13 @@ export class MeasureUpdate extends React.Component<IMeasureUpdateProps, IMeasure
   }
 }
 
-const mapStateToProps = (storeState: IRootState) => ({
-  users: storeState.userManagement.users,
-  measureEntity: storeState.measure.entity,
-  loading: storeState.measure.loading,
-  updating: storeState.measure.updating,
-  updateSuccess: storeState.measure.updateSuccess
+const mapStateToProps = ({measure, userManagement, authentication} : IRootState) => ({
+  account: authentication.account,
+  users: userManagement.users,
+  measureEntity: measure.entity,
+  loading: measure.loading,
+  updating: measure.updating,
+  updateSuccess: measure.updateSuccess
 });
 
 const mapDispatchToProps = {
