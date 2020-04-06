@@ -1,16 +1,15 @@
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
-import { connect } from 'react-redux';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Col, Row, Table } from 'reactstrap';
-import { Translate, ICrudGetAllAction, TextFormat, getSortState, IPaginationBaseState } from 'react-jhipster';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {connect} from 'react-redux';
+import {Link, RouteComponentProps} from 'react-router-dom';
+import {Button, Table} from 'reactstrap';
+import {getSortState, IPaginationBaseState, TextFormat, Translate} from 'react-jhipster';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-import { IRootState } from 'app/shared/reducers';
-import { getEntities, reset } from './measure.reducer';
-import { IMeasure } from 'app/shared/model/measure.model';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
-import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
+import {IRootState} from 'app/shared/reducers';
+import {getEntities, reset} from './measure.reducer';
+import {APP_DATE_FORMAT} from 'app/config/constants';
+import {ITEMS_PER_PAGE} from 'app/shared/util/pagination.constants';
 
 export interface IMeasureProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
@@ -62,11 +61,11 @@ export class Measure extends React.Component<IMeasureProps, IMeasureState> {
   };
 
   render() {
-    const { measureList, match } = this.props;
+    const { measureList, match, account } = this.props;
     return (
       <div>
         <h2 id="measure-heading">
-          <Translate contentKey="hotelcovid19App.measure.home.title">Measures</Translate>
+          <Translate contentKey="hotelcovid19App.measure.home.title" interpolate={{ login: account.login }}>Measures from {account.login}</Translate>
           <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
@@ -150,17 +149,17 @@ export class Measure extends React.Component<IMeasureProps, IMeasureState> {
                       </td>
                       <td>{measure.temperatureAt8}</td>
                       <td>{measure.temperatureAt20}</td>
-                      <td>{measure.cought ? 'true' : 'false'}</td>
-                      <td>{measure.troubleToBreathe ? 'true' : 'false'}</td>
-                      <td>{measure.sputum ? 'true' : 'false'}</td>
-                      <td>{measure.soreThroat ? 'true' : 'false'}</td>
-                      <td>{measure.ostTaste ? 'true' : 'false'}</td>
-                      <td>{measure.flutter ? 'true' : 'false'}</td>
-                      <td>{measure.diarrhea ? 'true' : 'false'}</td>
-                      <td>{measure.headache ? 'true' : 'false'}</td>
-                      <td>{measure.musclePain ? 'true' : 'false'}</td>
+                      <td>{measure.cought ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
+                      <td>{measure.troubleToBreathe ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
+                      <td>{measure.sputum ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
+                      <td>{measure.soreThroat ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
+                      <td>{measure.ostTaste ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
+                      <td>{measure.flutter ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
+                      <td>{measure.diarrhea ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
+                      <td>{measure.headache ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
+                      <td>{measure.musclePain ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
                       <td>{measure.notes}</td>
-                      <td>{measure.user ? measure.user.id : ''}</td>
+                      <td>{measure.user ? measure.user.login : ''}</td>
                       <td className="text-right">
                         <div className="btn-group flex-btn-group-container">
                           <Button tag={Link} to={`${match.url}/${measure.id}`} color="info" size="sm">
@@ -199,7 +198,8 @@ export class Measure extends React.Component<IMeasureProps, IMeasureState> {
   }
 }
 
-const mapStateToProps = ({ measure }: IRootState) => ({
+const mapStateToProps = ({ measure, authentication }: IRootState) => ({
+  account: authentication.account,
   measureList: measure.entities,
   totalItems: measure.totalItems,
   links: measure.links,

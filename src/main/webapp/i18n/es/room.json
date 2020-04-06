@@ -2,21 +2,21 @@
   "hotelcovid19App": {
     "room": {
       "home": {
-        "title": "Rooms",
-        "createLabel": "Crear nuevo Room",
-        "createOrEditLabel": "Crear o editar Room",
-        "notFound": "No Rooms found"
+        "title": "Habitaciones",
+        "createLabel": "Crear nueva habitación",
+        "createOrEditLabel": "Crear o editar habitación",
+        "notFound": "No hay habitaciones"
       },
-      "created": "Un nuevo Room ha sido creado con el identificador {{ param }}",
-      "updated": "Un Room ha sido actualizado con el identificador {{ param }}",
-      "deleted": "Un Room ha sido eliminado con el identificador {{ param }}",
+      "created": "Un nueva habitación ha sido creado con el identificador {{ param }}",
+      "updated": "Una habitación ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Una habitación ha sido eliminado con el identificador {{ param }}",
       "delete": {
-        "question": "¿Seguro que quiere eliminar Room {{ id }}?"
+        "question": "¿Seguro que quiere eliminar la habitación {{ id }}?"
       },
       "detail": {
-        "title": "Room"
+        "title": "Habitación"
       },
-      "name": "Name",
+      "name": "Nombre",
       "user": "User"
     }
   }
