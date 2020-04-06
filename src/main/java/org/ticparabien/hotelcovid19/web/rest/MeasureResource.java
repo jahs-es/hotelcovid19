@@ -1,7 +1,11 @@
 package org.ticparabien.hotelcovid19.web.rest;
 
 import org.ticparabien.hotelcovid19.domain.Measure;
+import org.ticparabien.hotelcovid19.domain.User;
+import org.ticparabien.hotelcovid19.security.AuthoritiesConstants;
+import org.ticparabien.hotelcovid19.security.SecurityUtils;
 import org.ticparabien.hotelcovid19.service.MeasureService;
+import org.ticparabien.hotelcovid19.service.UserService;
 import org.ticparabien.hotelcovid19.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -24,6 +28,7 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
+import static java.util.Objects.isNull;
 
 /**
  * REST controller for managing {@link org.ticparabien.hotelcovid19.domain.Measure}.
@@ -40,9 +45,11 @@ public class MeasureResource {
     private String applicationName;
 
     private final MeasureService measureService;
+    private final UserService userService;
 
-    public MeasureResource(MeasureService measureService) {
+    public MeasureResource(MeasureService measureService, UserService userService) {
         this.measureService = measureService;
+        this.userService = userService;
     }
 
     /**
@@ -58,10 +65,27 @@ public class MeasureResource {
         if (measure.getId() != null) {
             throw new BadRequestAlertException("A new measure cannot already have an ID", ENTITY_NAME, "idexists");
         }
+
+        if (isNull(measure.getUser())) {
+            setLoggedUser(measure);
+        }
+
         Measure result = measureService.save(measure);
         return ResponseEntity.created(new URI("/api/measures/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
+    }
+
+    private void setLoggedUser(Measure measure) {
+        Optional<String> login = SecurityUtils.getCurrentUserLogin();
+
+        if (login.isPresent()) {
+            Optional<User> user = userService.getUserWithAuthoritiesByLogin(login.get());
+
+            if (user.isPresent()) {
+                measure.setUser(user.get());
+            }
+        }
     }
 
     /**
@@ -95,8 +119,17 @@ public class MeasureResource {
      */
     @GetMapping("/measures")
     public ResponseEntity<List<Measure>> getAllMeasures(Pageable pageable) {
-        log.debug("REST request to get a page of Measures");
-        Page<Measure> page = measureService.findAll(pageable);
+
+        Page<Measure> page;
+
+        if (SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN)) {
+            log.debug("REST request to get a page of All Measures");
+            page = measureService.findAll(pageable);
+        } else {
+            log.debug("REST request to get a page of user Measures");
+            page = measureService.findAllByUser(pageable);
+        }
+
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }

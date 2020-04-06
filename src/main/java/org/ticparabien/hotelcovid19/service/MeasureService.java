@@ -28,6 +28,14 @@ public interface MeasureService {
      */
     Page<Measure> findAll(Pageable pageable);
 
+    /**
+     * Get all the measures.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    Page<Measure> findAllByUser(Pageable pageable);
+
 
     /**
      * Get the "id" measure.

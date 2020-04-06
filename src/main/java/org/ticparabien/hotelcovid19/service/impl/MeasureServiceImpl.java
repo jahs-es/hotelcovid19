@@ -41,6 +41,19 @@ public class MeasureServiceImpl implements MeasureService {
     }
 
     /**
+     * Get all the logged user measures.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Measure> findAllByUser(Pageable pageable) {
+        log.debug("Request to get all logged user Measures");
+        return measureRepository.findByUserIsCurrentUser(pageable);
+    }
+
+    /**
      * Get all the measures.
      *
      * @param pageable the pagination information.
