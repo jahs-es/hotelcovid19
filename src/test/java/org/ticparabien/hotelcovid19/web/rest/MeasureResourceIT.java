@@ -4,6 +4,7 @@ import org.ticparabien.hotelcovid19.Hotelcovid19App;
 import org.ticparabien.hotelcovid19.domain.Measure;
 import org.ticparabien.hotelcovid19.repository.MeasureRepository;
 import org.ticparabien.hotelcovid19.service.MeasureService;
+import org.ticparabien.hotelcovid19.service.UserService;
 import org.ticparabien.hotelcovid19.web.rest.errors.ExceptionTranslator;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -82,6 +83,9 @@ public class MeasureResourceIT {
     private MeasureService measureService;
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -103,7 +107,7 @@ public class MeasureResourceIT {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final MeasureResource measureResource = new MeasureResource(measureService);
+        final MeasureResource measureResource = new MeasureResource(measureService, userService);
         this.restMeasureMockMvc = MockMvcBuilders.standaloneSetup(measureResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -419,7 +423,7 @@ public class MeasureResourceIT {
             .andExpect(jsonPath("$.[*].musclePain").value(hasItem(DEFAULT_MUSCLE_PAIN.booleanValue())))
             .andExpect(jsonPath("$.[*].notes").value(hasItem(DEFAULT_NOTES)));
     }
-    
+
     @Test
     @Transactional
     public void getMeasure() throws Exception {

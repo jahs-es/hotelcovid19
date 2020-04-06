@@ -1,18 +1,17 @@
 import './home.scss';
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Translate } from 'react-jhipster';
-import { connect } from 'react-redux';
-import { Row, Col, Alert } from 'reactstrap';
-
-import { IRootState } from 'app/shared/reducers';
-import {isNullOrUndefined} from "util";
+import {Link} from 'react-router-dom';
+import {Translate} from 'react-jhipster';
+import {connect} from 'react-redux';
+import {Alert, Col, Row} from 'reactstrap';
 
 export type IHomeProp = StateProps;
 
 export const Home = (props: IHomeProp) => {
   const { account } = props;
+
+  const isAdmin = () => (!!(account.authorities.indexOf('ROLE_ADMIN') > -1 ));
 
   return (
     <Row>
@@ -20,21 +19,21 @@ export const Home = (props: IHomeProp) => {
         {account && account.login ? (
           <div>
             <Alert color="success">
-              <Translate contentKey="home.logged.message" interpolate={{ username: account.login }}>
+              <Translate contentKey="home.logged.message" interpolate={{ login: account.login }}>
                 You are logged in as user {account.login}.
               </Translate>
             </Alert>
-            {account.roomName &&
+            {account.roomName && !isAdmin() &&
             <Alert color="info">
               <Translate contentKey="home.logged.room" interpolate={{ roomName: account.roomName }}>
                 Your room is {account.roomName}.
               </Translate>
             </Alert>
             }
-            {account.roomName == null &&
+            {account.roomName === null && !isAdmin() &&
             <Alert color="warning">
               <Translate contentKey="home.logged.noRoom">
-                No room asigned to you. Please contact an admin.
+                No room asigned to you. Please contact a controller.
               </Translate>
             </Alert>
             }
