@@ -5,6 +5,7 @@ import org.ticparabien.hotelcovid19.config.Constants;
 import org.ticparabien.hotelcovid19.domain.Authority;
 import org.ticparabien.hotelcovid19.domain.User;
 import org.ticparabien.hotelcovid19.repository.AuthorityRepository;
+import org.ticparabien.hotelcovid19.repository.RoomRepository;
 import org.ticparabien.hotelcovid19.repository.UserRepository;
 import org.ticparabien.hotelcovid19.security.AuthoritiesConstants;
 import org.ticparabien.hotelcovid19.service.MailService;
@@ -50,6 +51,9 @@ public class AccountResourceIT {
     private UserRepository userRepository;
 
     @Autowired
+    private RoomRepository roomRepository;
+
+    @Autowired
     private AuthorityRepository authorityRepository;
 
     @Autowired
@@ -79,10 +83,10 @@ public class AccountResourceIT {
         MockitoAnnotations.initMocks(this);
         doNothing().when(mockMailService).sendActivationEmail(any());
         AccountResource accountResource =
-            new AccountResource(userRepository, userService, mockMailService);
+            new AccountResource(userRepository, roomRepository, userService, mockMailService);
 
         AccountResource accountUserMockResource =
-            new AccountResource(userRepository, mockUserService, mockMailService);
+            new AccountResource(userRepository, roomRepository, mockUserService, mockMailService);
         this.restMvc = MockMvcBuilders.standaloneSetup(accountResource)
             .setMessageConverters(httpMessageConverters)
             .setControllerAdvice(exceptionTranslator)

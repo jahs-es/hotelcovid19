@@ -1,17 +1,17 @@
 import './home.scss';
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Translate } from 'react-jhipster';
-import { connect } from 'react-redux';
-import { Row, Col, Alert } from 'reactstrap';
-
-import { IRootState } from 'app/shared/reducers';
+import {Link} from 'react-router-dom';
+import {Translate} from 'react-jhipster';
+import {connect} from 'react-redux';
+import {Alert, Col, Row} from 'reactstrap';
 
 export type IHomeProp = StateProps;
 
 export const Home = (props: IHomeProp) => {
   const { account } = props;
+
+  const isAdmin = () => (!!(account.authorities.indexOf('ROLE_ADMIN') > -1 ));
 
   return (
     <Row>
@@ -19,10 +19,24 @@ export const Home = (props: IHomeProp) => {
         {account && account.login ? (
           <div>
             <Alert color="success">
-              <Translate contentKey="home.logged.message" interpolate={{ username: account.login }}>
+              <Translate contentKey="home.logged.message" interpolate={{ login: account.login }}>
                 You are logged in as user {account.login}.
               </Translate>
             </Alert>
+            {account.roomName && !isAdmin() &&
+            <Alert color="info">
+              <Translate contentKey="home.logged.room" interpolate={{ roomName: account.roomName }}>
+                Your room is {account.roomName}.
+              </Translate>
+            </Alert>
+            }
+            {account.roomName === null && !isAdmin() &&
+            <Alert color="warning">
+              <Translate contentKey="home.logged.noRoom">
+                No room asigned to you. Please contact a controller.
+              </Translate>
+            </Alert>
+            }
           </div>
         ) : (
           <div>
@@ -32,7 +46,7 @@ export const Home = (props: IHomeProp) => {
                 <Translate contentKey="global.messages.info.register.link">Register a new account</Translate>
               </Link>
             </Alert>
-            <Alert color="warning">
+            <Alert color="info">
               <Translate contentKey="global.messages.info.login.doLogin">Please do login to access:</Translate>&nbsp;
               <Link to="/account/login" className="alert-link">
                 <Translate contentKey="global.messages.info.login.link">Do login</Translate>
