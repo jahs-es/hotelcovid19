@@ -3,7 +3,9 @@
     "title": "¡Bienvenido, Java Hipster!",
     "subtitle": "Esta es su página de inicio",
     "logged": {
-      "message": "Está conectado como \"{{username}}\"."
+      "message": "Está conectado como \"{{login}}\".",
+      "room": "Su  habitación es  \"{{roomName}}\".",
+      "noRoom": "No tiene habitación asignada. Contacte con un coordinador."
     },
     "question": "Si tiene preguntas sobre JHipster:",
     "link": {

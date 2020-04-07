@@ -1,0 +1,11 @@
+id;date;temperature_at_8;temperature_at_20;cought;trouble_to_breathe;sputum;sore_throat;ost_taste;flutter;diarrhea;headache;muscle_pain;notes
+1;2020-03-27T08:29:25;23277;45606;false;true;true;false;false;true;true;true;false;HDD
+2;2020-03-27T00:57:20;17052;45049;false;false;true;true;true;true;true;false;false;Intelligent
+3;2020-03-27T00:51:41;24102;44015;true;false;true;false;true;false;false;true;false;Tuna
+4;2020-03-26T23:09:15;31171;42515;true;false;true;true;false;false;true;true;true;Markets Chief
+5;2020-03-27T02:56:00;72727;92187;false;false;true;false;true;false;true;false;true;compress South Georgia and the South Sandwich Islands
+6;2020-03-27T03:12:03;35675;96525;false;true;true;false;false;false;true;false;false;Administrator
+7;2020-03-26T22:44:57;39488;19871;false;false;false;true;false;true;true;true;true;Checking Account Identity deposit
+8;2020-03-26T19:19:26;86310;85003;true;false;false;false;false;false;false;true;false;pixel withdrawal
+9;2020-03-26T19:59:24;56124;47221;false;false;true;true;true;true;true;true;false;Networked Sleek Metal Table Small
+10;2020-03-27T06:44:20;10789;20171;false;true;true;false;false;true;true;true;true;Phased

@@ -4,6 +4,7 @@ import org.ticparabien.hotelcovid19.config.Constants;
 import org.ticparabien.hotelcovid19.domain.Authority;
 import org.ticparabien.hotelcovid19.domain.User;
 import org.ticparabien.hotelcovid19.repository.AuthorityRepository;
+import org.ticparabien.hotelcovid19.repository.RoomRepository;
 import org.ticparabien.hotelcovid19.repository.UserRepository;
 import org.ticparabien.hotelcovid19.security.AuthoritiesConstants;
 import org.ticparabien.hotelcovid19.security.SecurityUtils;

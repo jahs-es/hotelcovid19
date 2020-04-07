@@ -1,0 +1,37 @@
+entity Room {
+    name String required maxlength(100),
+}
+
+relationship OneToOne {
+  Room{user} to User
+}
+
+entity Measure {
+    date Instant required,
+    temperatureAt8 Double,
+    temperatureAt20 Double,
+    cought Boolean required,
+    troubleToBreathe Boolean required,
+    sputum Boolean required,
+    soreThroat Boolean required,
+    ostTaste Boolean required,
+    flutter Boolean required,
+    diarrhea Boolean required,
+    headache Boolean required,
+    musclePain Boolean required,
+    notes String
+}
+
+relationship ManyToOne {
+	Measure{user} to User,
+}
+
+
+service Room with serviceClass
+service Room with serviceImpl
+service Measure with serviceClass
+service Measure with serviceImpl
+
+paginate Room with infinite-scroll
+paginate Measure with infinite-scroll
+

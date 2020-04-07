@@ -120,6 +120,12 @@ If you need to re-run the Sonar phase, please be sure to specify at least the `i
 ./mvnw initialize sonar:sonar
 ```
 
+### Swagger
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
 or
 
 For more information, refer to the [Code quality page][].
