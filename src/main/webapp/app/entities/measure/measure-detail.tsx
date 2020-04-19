@@ -51,65 +51,61 @@ export class MeasureDetail extends React.Component<IMeasureDetailProps> {
                 <Translate contentKey="hotelcovid19App.measure.cought">Cought</Translate>
               </span>
             </dt>
-            <dd>{measureEntity.cought ? 'true' : 'false'}</dd>
+            <dd>{measureEntity.cought ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</dd>
             <dt>
               <span id="troubleToBreathe">
                 <Translate contentKey="hotelcovid19App.measure.troubleToBreathe">Trouble To Breathe</Translate>
               </span>
             </dt>
-            <dd>{measureEntity.troubleToBreathe ? 'true' : 'false'}</dd>
+            <dd>{measureEntity.troubleToBreathe ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</dd>
             <dt>
               <span id="sputum">
                 <Translate contentKey="hotelcovid19App.measure.sputum">Sputum</Translate>
               </span>
             </dt>
-            <dd>{measureEntity.sputum ? 'true' : 'false'}</dd>
+            <dd>{measureEntity.sputum ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</dd>
             <dt>
               <span id="soreThroat">
                 <Translate contentKey="hotelcovid19App.measure.soreThroat">Sore Throat</Translate>
               </span>
             </dt>
-            <dd>{measureEntity.soreThroat ? 'true' : 'false'}</dd>
+            <dd>{measureEntity.soreThroat ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</dd>
             <dt>
               <span id="ostTaste">
                 <Translate contentKey="hotelcovid19App.measure.ostTaste">Ost Taste</Translate>
               </span>
             </dt>
-            <dd>{measureEntity.ostTaste ? 'true' : 'false'}</dd>
+            <dd>{measureEntity.ostTaste ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</dd>
             <dt>
               <span id="flutter">
                 <Translate contentKey="hotelcovid19App.measure.flutter">Flutter</Translate>
               </span>
             </dt>
-            <dd>{measureEntity.flutter ? 'true' : 'false'}</dd>
+            <dd>{measureEntity.flutter ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</dd>
             <dt>
               <span id="diarrhea">
                 <Translate contentKey="hotelcovid19App.measure.diarrhea">Diarrhea</Translate>
               </span>
             </dt>
-            <dd>{measureEntity.diarrhea ? 'true' : 'false'}</dd>
+            <dd>{measureEntity.diarrhea ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</dd>
             <dt>
               <span id="headache">
                 <Translate contentKey="hotelcovid19App.measure.headache">Headache</Translate>
               </span>
             </dt>
-            <dd>{measureEntity.headache ? 'true' : 'false'}</dd>
+            <dd>{measureEntity.headache ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</dd>
             <dt>
               <span id="musclePain">
                 <Translate contentKey="hotelcovid19App.measure.musclePain">Muscle Pain</Translate>
               </span>
             </dt>
-            <dd>{measureEntity.musclePain ? 'true' : 'false'}</dd>
+            <dd>{measureEntity.musclePain ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</dd>
             <dt>
               <span id="notes">
                 <Translate contentKey="hotelcovid19App.measure.notes">Notes</Translate>
               </span>
             </dt>
             <dd>{measureEntity.notes}</dd>
-            <dt>
-              <Translate contentKey="hotelcovid19App.measure.user">User</Translate>
-            </dt>
-            <dd>{measureEntity.user ? measureEntity.user.id : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/measure" replace color="info">
             <FontAwesomeIcon icon="arrow-left" />{' '}
