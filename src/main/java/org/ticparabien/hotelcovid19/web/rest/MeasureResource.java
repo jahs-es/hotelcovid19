@@ -103,6 +103,11 @@ public class MeasureResource {
         if (measure.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
+
+        if (isNull(measure.getUser())) {
+            setLoggedUser(measure);
+        }
+
         Measure result = measureService.save(measure);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, measure.getId().toString()))

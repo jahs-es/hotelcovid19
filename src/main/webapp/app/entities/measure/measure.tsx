@@ -149,15 +149,15 @@ export class Measure extends React.Component<IMeasureProps, IMeasureState> {
                       </td>
                       <td>{measure.temperatureAt8}</td>
                       <td>{measure.temperatureAt20}</td>
-                      <td>{measure.cought ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
-                      <td>{measure.troubleToBreathe ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
-                      <td>{measure.sputum ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
-                      <td>{measure.soreThroat ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
-                      <td>{measure.ostTaste ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
-                      <td>{measure.flutter ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
-                      <td>{measure.diarrhea ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
-                      <td>{measure.headache ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
-                      <td>{measure.musclePain ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.yes">No</Translate>}</td>
+                      <td>{measure.cought ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</td>
+                      <td>{measure.troubleToBreathe ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</td>
+                      <td>{measure.sputum ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</td>
+                      <td>{measure.soreThroat ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</td>
+                      <td>{measure.ostTaste ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</td>
+                      <td>{measure.flutter ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</td>
+                      <td>{measure.diarrhea ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</td>
+                      <td>{measure.headache ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</td>
+                      <td>{measure.musclePain ? <Translate contentKey="hotelcovid19App.general.yes">Sí</Translate> : <Translate contentKey="hotelcovid19App.general.no">No</Translate>}</td>
                       <td>{measure.notes}</td>
                       <td>{measure.user ? measure.user.login : ''}</td>
                       <td className="text-right">

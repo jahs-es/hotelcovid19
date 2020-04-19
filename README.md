@@ -1,6 +1,11 @@
 # hotelcovid19
 
-This application was generated using JHipster 6.4.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.4.1](https://www.jhipster.tech/documentation-archive/v6.4.1).
+A solution to create patients and asign them to isolated rooms in order to monitorize measures from patients. 
+Also allows patients to manage all his daily measures, in spite of availability of an mobile app [HotelCovid19App](https://github.com/jahs-es/hotelcovid19app).  
+
+## Technical aspects
+
+Backend using Spring security and Spring boot and front done using React. Initial structure with Jhipster.
 
 ## Development
 
