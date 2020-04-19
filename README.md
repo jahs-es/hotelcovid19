@@ -1,7 +1,7 @@
 # hotelcovid19
 
 A solution to create patients and asign them to isolated rooms in order to monitorize measures from patients. 
-Also allows patients to manage all his daily measures, in spite of availability of an mobile app [HotelCovid19App](https://github.com/jahs-es/hotelcovid19app).  
+Also allows patients to manage all his daily measures, in spite of availability of an mobile app [HotelCovid19App](https://github.com/jahs-es/hotelcovid19_app).  
 
 ## Technical aspects
 
